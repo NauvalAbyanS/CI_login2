@@ -88,4 +88,15 @@ class Auth extends CI_Controller {
 			redirect('auth');
 		}
 	}
+
+	function logout(){
+		$this->session->unset_userdata('email');
+		$this->session->unset_userdata('id_role');
+		
+		$this->session->set_flashdata('message','<div class="alert alert-danger" 
+		role="alert">this email has not been activated!');
+		redirect('auth');
+	}
+
+
 }
